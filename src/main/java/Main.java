@@ -5,7 +5,7 @@ public class Main {
     static Question[] questions = new Question[4];
 
 
-    public static void main(String[] args) {
+    public static void main() {
 
         CreateOptions();
         CreateQuestions();
@@ -62,9 +62,5 @@ public class Main {
        Quiz01.setName("Квиз_001");
        Quiz01.setQuestionList(questions);
     }
-    public static String printQuestion(Question qu)
-    {
-        String Quest=qu.id+" "+qu.text;
-        return Quest;
-    }
+
 }
