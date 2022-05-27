@@ -1,14 +1,23 @@
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class MainTest {
 
+    @Before
+    public void createData()
+    {
+        Main.CreateQuiz();
+        Main.CreateQuestions();
+        Main.CreateOptions();
+    }
+
     @Test
     public void createOptionsTest()
     {
-        Main.CreateOptions();
         Assert.assertNotNull(Main.options1[0].getId());
         Assert.assertNotNull(Main.options1[0].getText());
         Assert.assertNotNull(Main.options1[0].isCorrect());
@@ -26,12 +35,10 @@ public class MainTest {
     @Test
     public void createQuestionsTest()
     {
-        Main.CreateQuestions();
         Assert.assertNotNull(Main.questions[0].id);
         Assert.assertNotNull(Main.questions[0].text);
         Assert.assertNotNull(Main.questions[0].options);
 
-        Main.CreateQuestions();
         Assert.assertNotNull(Main.questions[1].id);
         Assert.assertNotNull(Main.questions[1].text);
         Assert.assertNotNull(Main.questions[1].options);
@@ -40,7 +47,6 @@ public class MainTest {
     @Test
     public void createQuizTest()
     {
-        Main.CreateQuiz();
         Assert.assertNotNull(Main.Quiz01.getId());
         Assert.assertNotNull(Main.Quiz01.getName());
         Assert.assertNotNull(Main.Quiz01.getQuestionList());
